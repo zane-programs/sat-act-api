@@ -1,12 +1,13 @@
-import { readCollegeData } from "../../colleges";
+import { readCollegeData } from "../colleges";
 
 export default async function handler(req, res) {
   // available to all sites (oops)
   res.setHeader("access-control-allow-origin", "*");
 
-  const navianceData = await readCollegeData();
+  const uuids = req.body.uuid;
+  console.log(uuids);
 
-  const uuids = req.query.uuid.split(",");
+  const navianceData = await readCollegeData();
 
   const dataToSend = navianceData.filter(
     (datum) => uuids.indexOf(datum.uuid) !== -1
