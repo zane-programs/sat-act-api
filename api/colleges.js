@@ -1,6 +1,9 @@
 import { readCollegeData } from "../colleges";
 
 export default async function handler(_req, res) {
+  // available to all sites (oops)
+  res.setHeader("access-control-allow-origin", "*");
+
   let navianceData = await readCollegeData();
 
   let collegesInfo = {};
