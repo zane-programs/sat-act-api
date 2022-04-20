@@ -1,9 +1,9 @@
 import { readCollegeData } from "../colleges";
 
 export default async function handler(req, res) {
-  // available to all sites (oops)
   res.setHeader("access-control-allow-origin", "*");
-  res.setHeader("access-control-allow-method", "*");
+  res.setHeader("access-control-allow-methods", "POST");
+  res.setHeader("access-control-allow-headers", "*");
 
   const uuids = req.body.uuid;
 

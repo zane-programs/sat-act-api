@@ -1,11 +1,9 @@
 {
   "name": "sat-act-api",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "vercel-dev": "vercel dev"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zane-programs/sat-act-api.git"
