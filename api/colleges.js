@@ -1,6 +1,7 @@
+import allowCors from "../allowCors";
 import { readCollegeData } from "../colleges";
 
-export default async function handler(_req, res) {
+async function handler(_req, res) {
   // available to all sites (oops)
   res.setHeader("access-control-allow-origin", "*");
 
@@ -15,3 +16,5 @@ export default async function handler(_req, res) {
   // send the data
   res.status(200).send(collegesInfo);
 }
+
+export default allowCors(handler);

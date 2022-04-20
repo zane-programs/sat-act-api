@@ -1,10 +1,7 @@
+import allowCors from "../allowCors";
 import { readCollegeData } from "../colleges";
 
-export default async function handler(req, res) {
-  res.setHeader("access-control-allow-origin", "*");
-  res.setHeader("access-control-allow-methods", "POST, GET, OPTIONS");
-  res.setHeader("access-control-allow-headers", "*");
-
+async function handler(req, res) {
   const uuids = req.body.uuid;
 
   const navianceData = await readCollegeData();
@@ -15,3 +12,5 @@ export default async function handler(req, res) {
 
   res.status(200).send(dataToSend);
 }
+
+export default allowCors(handler);
