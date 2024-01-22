@@ -9,8 +9,10 @@ async function handler(_req, res) {
 
   let collegesInfo = {};
 
-  navianceData.forEach(({ name, uuid }) => {
-    collegesInfo[uuid] = name;
+  navianceData.forEach(({ name, uuid, data }) => {
+    if (data?.scattergrams) {
+      collegesInfo[uuid] = name;
+    }
   });
 
   // send the data
